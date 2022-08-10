@@ -1,0 +1,7 @@
+{
+  "name": "pay-mind",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
