@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding *ngIf="conta">
+
+  <ion-item>
+    <ion-label class="ion-text-wrap">
+      <h2>
+        {{ conta.Descricao }}
+        <span class="date">
+          <ion-note>Vence dia {{ conta.DiaVencimento }}</ion-note>
+        </span>
+      </h2>
+      <h3>R${{ conta.Valor | number:'1.2-2' }}</h3>
+    </ion-label>
+  </ion-item>
+  <div id="container">
+    <ion-list>
+      <ion-item id="rounded">
+        <ion-label fixed>Valor pago: </ion-label>
+        <ion-input type="number" ngDefaultControl [(ngModel)]="conta.Valor" required></ion-input>
+      </ion-item>
+      <ion-item id="rounded">
+        <ion-label fixed>Info: </ion-label>
+        <ion-input ngDefaultControl [(ngModel)]="conta.InfoPagamento" type="text"></ion-input>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div class="ion-text-center">
+    <ion-button (click)="GravarPagamento()">Gravar</ion-button>
+  </div>
+
+</ion-content>

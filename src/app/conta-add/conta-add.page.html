@@ -1,0 +1,32 @@
+<!-- Back button with a default href -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div id="container">
+    <ion-list>
+      <ion-item id="rounded">
+        <ion-label fixed>Descrição: </ion-label>
+        <ion-input type="text" ngDefaultControl [(ngModel)]="conta.Descricao" required></ion-input>
+      </ion-item>
+      <ion-item id="rounded">
+        <ion-label fixed>Valor: </ion-label>
+        <ion-input type="number" ngDefaultControl [(ngModel)]="conta.Valor" required></ion-input>
+      </ion-item>
+      <ion-item id="rounded">
+        <ion-label fixed>Dia vencimento: </ion-label>
+        <ion-input ngDefaultControl [(ngModel)]="conta.DiaVencimento" type="number"></ion-input>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div class="ion-text-center">
+    <ion-button (click)="GravarConta()">Gravar</ion-button>
+  </div>
+
+</ion-content>
