@@ -7,14 +7,16 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list>
+  <ion-list lines="none">
     <app-list-conta *ngFor="let conta of lstContas" [conta]="conta"></app-list-conta>
   </ion-list>
 
   <!-- fab placed to the bottom end -->
-  <ion-fab [routerLink]="['/conta-add']" vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab [routerLink]="['/conta-add']" vertical="bottom" horizontal="center" slot="fixed">
     <ion-fab-button>
       <ion-icon name="add-circle"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+
+
 </ion-content>

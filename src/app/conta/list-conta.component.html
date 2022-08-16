@@ -1,15 +1,24 @@
-<ion-item *ngIf="conta" [routerLink]="'/conta/' + conta.Id" [detail]="false">
-  <div [style.backgroundColor]="conta.Paga?'#97e7b7':'#97e0e7'" style="width:100%">
-    <ion-label class="ion-text-wrap">
-      <h2 [style.text-decoration]="conta.Paga?'line-through':'none'">
-        <span>
-          {{ conta.Descricao }}
-        </span>
-        <span class="date">
-          <ion-note>{{ conta.DiaVencimento }}</ion-note>
-        </span>
-      </h2>
-      <h3>R${{ conta.Valor | number:'1.2-2' }}</h3>
-    </ion-label>
-  </div>
-</ion-item>
+<ion-item-sliding *ngIf="conta" [detail]="false">
+  <ion-item [routerLink]="'/conta/' + conta.Id">
+    <div [style.backgroundColor]="conta.Paga?'#c2fbd9':'#f3cccc'" class="divItem">
+      <ion-label class="ion-text-wrap">
+        <h2 [style.text-decoration]="conta.Paga?'line-through':'none'">
+          <span>
+            {{ conta.Descricao }}
+          </span>
+          <span class="date divPayDay">
+            <ion-note>{{ conta.DiaVencimento }}</ion-note>
+          </span>
+        </h2>
+        <div class="divPayValue">
+          <span>R${{ conta.Valor | number:'1.2-2' }}</span>
+        </div>
+      </ion-label>
+    </div>
+  </ion-item>
+  <ion-item-options side="end">
+    <ion-item-option color="danger" (click)="delete(item)">
+      <ion-icon slot="icon-only" name="trash"></ion-icon>
+    </ion-item-option>
+  </ion-item-options>
+</ion-item-sliding>

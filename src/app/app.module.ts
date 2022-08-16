@@ -10,12 +10,7 @@ import { DatabaseService } from './services/database.service';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(),
-    AppRoutingModule,
-    DatabaseService,
-  ],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
