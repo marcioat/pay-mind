@@ -25,7 +25,7 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.platform.ready().then(async (ready) => {
       this.lstContas = await this.getContas();
-      console.log('home page called');
+      //console.log(this.lstContas[0]);
     });
   }
 

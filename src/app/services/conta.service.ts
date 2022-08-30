@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { DatabaseService } from './database.service';
+import { ContaDBService } from './conta-db.service';
 
 export interface Conta {
+  _id: string;
   Id: number;
   Descricao: string;
   DiaVencimento: number;
@@ -18,6 +19,7 @@ export interface Conta {
 export class ContaService {
   public contas: Conta[] = [
     {
+      _id: 'teste',
       Id: 0,
       Descricao: 'Garagem',
       DiaVencimento: 10,
@@ -26,26 +28,8 @@ export class ContaService {
       InfoPagamento: '',
       Paga: false,
     },
-    {
-      Id: 1,
-      Descricao: 'Original Card',
-      DiaVencimento: 5,
-      Valor: 120,
-      DataPagamento: '',
-      InfoPagamento: '',
-      Paga: false,
-    },
-    {
-      Id: 2,
-      Descricao: 'Seguro FIT',
-      DiaVencimento: 15,
-      Valor: 102,
-      DataPagamento: '',
-      InfoPagamento: '',
-      Paga: false,
-    },
   ];
-  constructor(private router: Router, private DBService: DatabaseService) {}
+  constructor(private router: Router, private DBService: ContaDBService) {}
 
   public async getContas() {
     this.contas = await this.DBService.contas();
@@ -76,6 +60,21 @@ export class ContaService {
     return this.contas.find((x) => x.Id === id);
   }
 
+  public deleteConta(conta: Conta) {
+    //console.log('saveConta');
+    //console.log(conta.Descricao);
+
+    //this.DBService.deleteConta(conta);
+
+    //console.log(this.contas.length);
+    this.contas = this.contas.filter((x) => x.Id != conta.Id);
+    //console.log(this.contas.length);
+    //this.contas.splice(conta.Id);
+    this.contas = this.sortArray(this.contas);
+
+    //this.router.navigate(['/home']);
+  }
+
   public saveConta(conta: Conta) {
     //console.log('saveConta');
     //console.log(conta.Descricao);
@@ -87,6 +86,11 @@ export class ContaService {
     this.contas.push(conta);
     this.contas = this.sortArray(this.contas);
 
+    this.router.navigate(['/home']);
+  }
+
+  public updateConta(conta: Conta) {
+    this.DBService.updateConta(conta);
     this.router.navigate(['/home']);
   }
 }

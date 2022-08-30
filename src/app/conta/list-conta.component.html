@@ -1,4 +1,4 @@
-<ion-item-sliding *ngIf="conta" [detail]="false">
+<ion-item-sliding *ngIf="conta" (ionDrag)="onDrag($event,conta)">
   <ion-item [routerLink]="'/conta/' + conta.Id">
     <div [style.backgroundColor]="conta.Paga?'#c2fbd9':'#f3cccc'" class="divItem">
       <ion-label class="ion-text-wrap">
@@ -12,12 +12,13 @@
         </h2>
         <div class="divPayValue">
           <span>R${{ conta.Valor | number:'1.2-2' }}</span>
+          <span *ngIf="conta.Paga"> - {{conta.InfoPagamento}}</span>
         </div>
       </ion-label>
     </div>
   </ion-item>
   <ion-item-options side="end">
-    <ion-item-option color="danger" (click)="delete(item)">
+    <ion-item-option expandable color="danger" (click)="delete(conta)">
       <ion-icon slot="icon-only" name="trash"></ion-icon>
     </ion-item-option>
   </ion-item-options>

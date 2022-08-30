@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import PouchDB from 'pouchdb';
-import { Conta } from '../services/conta.service';
+import { Conta } from './conta.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class DatabaseService {
+export class ContaDBService {
   private _DB: any;
   private success: boolean = true;
   private lstContas: Conta[];
@@ -17,7 +17,7 @@ export class DatabaseService {
     this._DB = new PouchDB('contas');
 
     this._DB.info().then(function (info) {
-      console.log(info);
+      //console.log(info);
     });
   }
 
@@ -35,7 +35,7 @@ export class DatabaseService {
   }
 
   addConta(conta: Conta) {
-    console.log(conta);
+    //console.log(conta);
 
     return new Promise((resolve) => {
       this._DB
@@ -45,7 +45,30 @@ export class DatabaseService {
         })
         .then(
           this._DB.info().then(function (info) {
-            console.log(info);
+            //console.log(info);
+          })
+        );
+
+      resolve(true);
+    });
+  }
+
+  updateConta(conta: Conta) {
+    //console.log(conta);
+
+    return new Promise((resolve) => {
+      //console.log(conta._id);
+      this._DB;
+      this._DB
+        .put(conta)
+        .catch((err) => {
+          this.success = false;
+          //console.log(err);
+        })
+        .then(
+          this._DB.info().then(function (info) {
+            //console.log(info);
+            //console.log(conta);
           })
         );
 

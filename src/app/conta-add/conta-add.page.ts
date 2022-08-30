@@ -13,6 +13,7 @@ export class ContaAddPage implements OnInit {
 
   ngOnInit() {
     this.conta = {
+      _id: '',
       Id: 0,
       Descricao: '',
       DiaVencimento: 1,

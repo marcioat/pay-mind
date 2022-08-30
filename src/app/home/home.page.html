@@ -8,7 +8,7 @@
 
 <ion-content [fullscreen]="true">
   <ion-list lines="none">
-    <app-list-conta *ngFor="let conta of lstContas" [conta]="conta"></app-list-conta>
+    <app-list-conta *ngFor="let conta of lstContas" [conta]="conta" [lstContas]="lstContas"></app-list-conta>
   </ion-list>
 
   <!-- fab placed to the bottom end -->

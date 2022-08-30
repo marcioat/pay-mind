@@ -6,7 +6,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { DatabaseService } from './services/database.service';
+import { ContaDBService } from './services/conta-db.service';
 
 @NgModule({
   declarations: [AppComponent],
