@@ -1,0 +1,25 @@
+<ion-item-sliding *ngIf="assinatura" (ionDrag)="onDrag($event,conta)">
+  <ion-item [routerLink]="'/assinatura/' + assinatura.Id">
+    <div [style.backgroundColor]="'#f3cccc'" class="divItem">
+      <ion-label class="ion-text-wrap">
+        <h2>
+          <span>
+            {{ assinatura.Descricao }}
+          </span>
+          <span class="date divPayDay">
+            <ion-note>{{ assinatura.DiaVencimento }}</ion-note>
+          </span>
+        </h2>
+        <div class="divPayValue">
+          <span>R${{ assinatura.Valor | number:'1.2-2' }}</span>
+          <span> {{assinatura.InfoPagamento}}</span>
+        </div>
+      </ion-label>
+    </div>
+  </ion-item>
+  <ion-item-options side="end">
+    <ion-item-option expandable color="danger" (click)="delete(assinatura)">
+      <ion-icon slot="icon-only" name="trash"></ion-icon>
+    </ion-item-option>
+  </ion-item-options>
+</ion-item-sliding>

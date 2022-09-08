@@ -64,7 +64,7 @@ export class ContaService {
     //console.log('saveConta');
     //console.log(conta.Descricao);
 
-    //this.DBService.deleteConta(conta);
+    this.DBService.deleteConta(conta);
 
     //console.log(this.contas.length);
     this.contas = this.contas.filter((x) => x.Id != conta.Id);

@@ -21,7 +21,19 @@ const routes: Routes = [
   },
   {
     path: 'conta-add',
-    loadChildren: () => import('./conta-add/conta-add.module').then( m => m.ContaAddPageModule)
+    loadChildren: () =>
+      import('./conta-add/conta-add.module').then((m) => m.ContaAddPageModule),
+  },
+  {
+    path: 'assinatura-list',
+    loadChildren: () =>
+      import('./assinatura-list/assinatura-list.module').then(
+        (m) => m.AssinaturaListPageModule
+      ),
+  },
+  {
+    path: 'assinatura-add',
+    loadChildren: () => import('./assinatura-add/assinatura-add.module').then( m => m.AssinaturaAddPageModule)
   },
 ];
 

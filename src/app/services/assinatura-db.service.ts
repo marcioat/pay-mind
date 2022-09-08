@@ -1,89 +1,45 @@
 import { Injectable } from '@angular/core';
 import PouchDB from 'pouchdb';
-import { Conta } from './conta.service';
+import { Assinatura } from './assinatura.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ContaDBService {
+export class AssinaturaDBService {
   private _DB: any;
   private success: boolean = true;
-  private lstContas: Conta[];
+  private lstAssinaturas: Assinatura[];
   constructor() {
     this.initialiseDB();
   }
 
   initialiseDB() {
-    this._DB = new PouchDB('contas');
+    this._DB = new PouchDB('assinaturas');
 
     this._DB.info().then(function (info) {
       //console.log(info);
     });
   }
 
-  public async contas() {
+  public async assinaturas() {
     await this._DB.allDocs({ include_docs: true }).then((docs) => {
-      this.lstContas = docs.rows.map((row) => {
+      this.lstAssinaturas = docs.rows.map((row) => {
         //row.doc.Date = new Date(row.doc.Date);
         //console.log(row.doc);
-        //this.lstContas.push(row.doc);
+        //this.lstAssinaturas.push(row.doc);
         return row.doc;
       });
     });
 
-    return this.lstContas;
+    return this.lstAssinaturas;
   }
 
-  addConta(conta: Conta) {
-    //console.log(conta);
+  addAssinatura(assinatura: Assinatura) {
+    //console.log(assinatura);
 
     return new Promise((resolve) => {
       this._DB
-        .post(conta)
-        .catch((err) => {
-          this.success = false;
-        })
-        .then(
-          this._DB.info().then(function (info) {
-            //console.log(info);
-          })
-        );
-
-      resolve(true);
-    });
-  }
-
-  updateConta(conta: Conta) {
-    //console.log(conta);
-
-    return new Promise((resolve) => {
-      //console.log(conta._id);
-      this._DB;
-      this._DB
-        .put(conta)
-        .catch((err) => {
-          this.success = false;
-          //console.log(err);
-        })
-        .then(
-          this._DB.info().then(function (info) {
-            //console.log(info);
-            //console.log(conta);
-          })
-        );
-
-      resolve(true);
-    });
-  }
-
-  deleteConta(conta: Conta) {
-    //console.log(conta);
-
-    return new Promise((resolve) => {
-      //console.log(conta._id);
-      this._DB;
-      this._DB
-        .remove(conta)
+        .post(assinatura)
         .catch((err) => {
           this.success = false;
           console.log(err);
@@ -91,7 +47,52 @@ export class ContaDBService {
         .then(
           this._DB.info().then(function (info) {
             console.log(info);
-            //console.log(conta);
+          })
+        );
+
+      resolve(true);
+    });
+  }
+
+  updateAssinatura(assinatura: Assinatura) {
+    //console.log(assinatura);
+
+    return new Promise((resolve) => {
+      //console.log(assinatura._id);
+      this._DB;
+      this._DB
+        .put(assinatura)
+        .catch((err) => {
+          this.success = false;
+          //console.log(err);
+        })
+        .then(
+          this._DB.info().then(function (info) {
+            //console.log(info);
+            //console.log(assinatura);
+          })
+        );
+
+      resolve(true);
+    });
+  }
+
+  deleteAssinatura(assinatura: Assinatura) {
+    //console.log(assinatura);
+
+    return new Promise((resolve) => {
+      //console.log(assinatura._id);
+      this._DB;
+      this._DB
+        .remove(assinatura)
+        .catch((err) => {
+          this.success = false;
+          console.log(err);
+        })
+        .then(
+          this._DB.info().then(function (info) {
+            console.log(info);
+            //console.log(assinatura);
           })
         );
 

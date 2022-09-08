@@ -1,0 +1,32 @@
+<!-- Back button with a default href -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div id="assinaturainer">
+    <ion-list>
+      <ion-item id="rounded">
+        <ion-label fixed>Descrição: </ion-label>
+        <ion-input type="text" ngDefaultControl [(ngModel)]="assinatura.Descricao" required></ion-input>
+      </ion-item>
+      <ion-item id="rounded">
+        <ion-label fixed>Valor: </ion-label>
+        <ion-input type="number" ngDefaultControl [(ngModel)]="assinatura.Valor" required></ion-input>
+      </ion-item>
+      <ion-item id="rounded">
+        <ion-label fixed>Dia vencimento: </ion-label>
+        <ion-input ngDefaultControl [(ngModel)]="assinatura.DiaVencimento" type="number"></ion-input>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div class="ion-text-center">
+    <ion-button (click)="GravarAssinatura()">Gravar</ion-button>
+  </div>
+
+</ion-content>

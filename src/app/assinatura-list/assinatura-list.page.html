@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Assinaturas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div [style.backgroundColor]="'#aed7ad'" class="divItem">
+    <ion-item>
+      <ion-label class="ion-text-wrap">
+        <h2>
+          <span>
+            {{ assinaturasQtd }} assinaturas
+          </span>
+          <span class="date divPayDay">
+            <ion-note>R${{ assinaturasValor | number:'1.2-2' }}</ion-note>
+          </span>
+        </h2>
+      </ion-label>
+    </ion-item>
+
+  </div>
+
+  <ion-list lines="none">
+    <app-assinatura-list *ngFor="let assinatura of lstAssinaturas" [assinatura]="assinatura"
+      [lstAssinaturas]="lstAssinaturas">
+    </app-assinatura-list>
+  </ion-list>
+
+  <!-- fab placed to the bottom end -->
+  <ion-fab [routerLink]="['/assinatura-add']" vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+</ion-content>
