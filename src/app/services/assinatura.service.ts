@@ -56,7 +56,8 @@ export class AssinaturaService {
 
     return sortedAssinaturas;
   }
-  public getAssinaturaById(id: number): Assinatura {
+  public getAssinaturaById(id: any): Assinatura {
+    console.log(id);
     return this.assinaturas.find((x) => x.Id === id);
   }
 
@@ -78,6 +79,9 @@ export class AssinaturaService {
   public saveAssinatura(assinatura: Assinatura) {
     //console.log('saveAssinatura');
     //console.log(assinatura.Descricao);
+
+    console.log(this.assinaturas);
+    console.log(this.assinaturas.length);
 
     assinatura.Id = this.assinaturas.length + 1;
     this.DBService.addAssinatura(assinatura);

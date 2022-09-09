@@ -1,83 +1,86 @@
 ion-item {
-    --padding-start: 0;
-    --inner-padding-end: 0;
-    border: none!important;
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  border: none !important;
 }
 
 ion-label {
-    margin-top: 5px;
-    margin-bottom: 2px;
-    margin-left: 12px;
+  margin-top: 5px;
+  margin-bottom: 2px;
+  margin-left: 12px;
 }
 
 ion-item h2 {
-    font-weight: 600;
-    font-size: 1.1em;
-    margin: 0;
+  font-weight: 600;
+  font-size: 1.1em;
+  margin: 0;
 }
 
 ion-item p {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    width: 95%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 95%;
 }
 
 ion-item .date {
-    float: right;
-    align-items: center;
-    display: flex;
+  float: right;
+  align-items: center;
+  display: flex;
 }
 
 ion-item ion-icon {
-    color: #c9c9ca;
+  color: #c9c9ca;
 }
 
 ion-item ion-note {
-    font-size: 0.9em;
-    margin-right: 8px;
-    font-weight: normal;
-    color: #fff;
-    background-color:#424242;
-    padding: 4px 7px 2px 6px;
-    border-radius: 8px;
+  font-size: 0.9em;
+  margin-right: 8px;
+  font-weight: normal;
+  color: #fff;
+  background-color: #424242;
+  padding: 4px 7px 2px 6px;
+  border-radius: 8px;
 }
 
 ion-item ion-note.md {
-    margin-right: 14px;
+  margin-right: 14px;
 }
 
 .dot {
-    display: block;
-    height: 12px;
-    width: 12px;
-    border-radius: 50%;
-    align-self: start;
-    margin: 16px 10px 16px 16px;
+  display: block;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  align-self: start;
+  margin: 16px 10px 16px 16px;
 }
 
 .dot-unread {
-    background: var(--ion-color-primary);
+  background: var(--ion-color-primary);
 }
 
 ion-footer ion-title {
-    font-size: 11px;
-    font-weight: normal;
+  font-size: 11px;
+  font-weight: normal;
 }
 
-.divItem{
-    width: 100%;
-    padding: 3px;
-    margin: 2px 5px 2px 5px;
-    border-radius: 15px;
+.divItem {
+  width: 100%;
+  padding: 3px;
+  margin: 2px 5px 2px 5px;
+  border-radius: 15px;
 }
 
 .divPayDay {
-    font-size: 1.2em;
+  font-size: 1.2em;
 }
 
+.info {
+  font-size: 0.8em !important;
+}
 .divPayValue {
-    padding-left: 3px;
-    margin: 0px;
-    font-size: 1.0em;
+  padding-left: 3px;
+  margin: 0px;
+  font-size: 1em;
 }

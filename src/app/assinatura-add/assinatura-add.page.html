@@ -16,6 +16,10 @@
         <ion-input type="text" ngDefaultControl [(ngModel)]="assinatura.Descricao" required></ion-input>
       </ion-item>
       <ion-item id="rounded">
+        <ion-label fixed>Forma Pgto: </ion-label>
+        <ion-input type="text" ngDefaultControl [(ngModel)]="assinatura.InfoPagamento" required></ion-input>
+      </ion-item>
+      <ion-item id="rounded">
         <ion-label fixed>Valor: </ion-label>
         <ion-input type="number" ngDefaultControl [(ngModel)]="assinatura.Valor" required></ion-input>
       </ion-item>

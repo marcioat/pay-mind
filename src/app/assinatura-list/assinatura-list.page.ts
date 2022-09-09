@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { App } from '@capacitor/app';
 import { IonRouterOutlet, Platform } from '@ionic/angular';
 import { Assinatura, AssinaturaService } from '../services/assinatura.service';
@@ -16,11 +17,13 @@ export class AssinaturaListPage implements OnInit {
   constructor(
     private assinaturaService: AssinaturaService,
     private platform: Platform,
-    private routerOutlet: IonRouterOutlet
+    private routerOutlet: IonRouterOutlet,
+    private router: Router
   ) {
     this.platform.backButton.subscribeWithPriority(-1, () => {
       if (!this.routerOutlet.canGoBack()) {
-        App.exitApp();
+        //App.exitApp();
+        this.router.navigateByUrl('/home');
       }
     });
   }

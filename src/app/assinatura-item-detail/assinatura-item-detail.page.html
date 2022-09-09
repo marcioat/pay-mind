@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding *ngIf="assinatura">
+
+  <ion-item>
+    <ion-label class="ion-text-wrap">
+      <h2>
+        {{ assinatura.Descricao }}
+        <span class="date">
+          <ion-note>Vence dia {{ assinatura.DiaVencimento }}</ion-note>
+        </span>
+      </h2>
+      <h3>R${{ assinatura.Valor | number:'1.2-2' }}</h3>
+    </ion-label>
+  </ion-item>
+  <div id="assinaturainer">
+    <ion-list>
+      <ion-item id="rounded">
+        <ion-label fixed>Valor pago: </ion-label>
+        <ion-input type="number" ngDefaultControl [(ngModel)]="assinatura.Valor" required></ion-input>
+      </ion-item>
+      <ion-item id="rounded">
+        <ion-label fixed>Info: </ion-label>
+        <ion-input ngDefaultControl [(ngModel)]="assinatura.InfoPagamento" type="text"></ion-input>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div class="ion-text-center">
+    <ion-button (click)="UpdateAssinatura()">Gravar</ion-button>
+  </div>
+
+</ion-content>

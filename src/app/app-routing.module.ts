@@ -32,8 +32,25 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'assinatura/:id',
+    loadChildren: () =>
+      import('./assinatura-item-detail/assinatura-item-detail.module').then(
+        (m) => m.AssinaturaItemDetailPageModule
+      ),
+  },
+  {
     path: 'assinatura-add',
-    loadChildren: () => import('./assinatura-add/assinatura-add.module').then( m => m.AssinaturaAddPageModule)
+    loadChildren: () =>
+      import('./assinatura-add/assinatura-add.module').then(
+        (m) => m.AssinaturaAddPageModule
+      ),
+  },
+  {
+    path: 'assinatura-item-detail',
+    loadChildren: () =>
+      import('./assinatura-item-detail/assinatura-item-detail.module').then(
+        (m) => m.AssinaturaItemDetailPageModule
+      ),
   },
 ];
 
