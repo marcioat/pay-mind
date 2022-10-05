@@ -31,6 +31,8 @@ export class ContaService {
   ];
   constructor(private router: Router, private DBService: ContaDBService) {}
 
+  ngOnInit() {}
+
   public async getContas() {
     this.contas = await this.DBService.contas();
 
@@ -86,6 +88,15 @@ export class ContaService {
     this.contas.push(conta);
     this.contas = this.sortArray(this.contas);
 
+    this.router.navigate(['/home']);
+  }
+
+  public ResetarContas(lstContas: Conta[]) {
+    lstContas.forEach((conta) => {
+      conta.Paga = false;
+
+      this.DBService.updateConta(conta);
+    });
     this.router.navigate(['/home']);
   }
 
