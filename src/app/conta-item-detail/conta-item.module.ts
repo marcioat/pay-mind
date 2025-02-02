@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { IonicModule } from '@ionic/angular';
+
 import { ListItemDetailComponent } from './conta-item.page';
 import { ListItemDetailRoutingModule } from './conta-item-route.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -13,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ListItemDetailRoutingModule,
     FormsModule,
+    IonicModule,
     ReactiveFormsModule,
   ],
 })

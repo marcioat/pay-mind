@@ -1,4 +1,4 @@
-<ion-item-sliding *ngIf="assinatura" (ionDrag)="onDrag($event,conta)">
+<ion-item-sliding *ngIf="assinatura" (ionDrag)="onDrag($event,assinatura)">
   <ion-item [routerLink]="'/assinatura/' + assinatura.Id">
     <div [style.backgroundColor]="'#f3cccc'" class="divItem">
       <ion-label class="ion-text-wrap">
